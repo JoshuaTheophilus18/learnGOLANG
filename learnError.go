@@ -5,6 +5,9 @@ import (
 	"fmt"
 )
 
+/*
+	Use Go Lang Error
+*/
 func f1(arg int) (int, error) {
 	if arg == 42 {
 
@@ -20,6 +23,9 @@ type argError struct {
 	prob string
 }
 
+/*
+	Make custom error function that extend Error() from Go Lang
+*/
 func (e *argError) Error() string {
 	return fmt.Sprintf("%d - %s", e.arg, e.prob)
 }
@@ -32,6 +38,9 @@ func f2(arg int) (int, error) {
 	return arg + 3, nil
 }
 
+/*
+	Execute Test
+*/
 func LearnError() {
 	for _, i := range []int{7, 42} {
 		if r, e := f1(i); e != nil {
